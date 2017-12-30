@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Übung 1</string>
+    <string name="button">Nachricht erhalten</string>
+    <string name="textView2">Nachricht: </string>
+    <string name="txtPassword">Bitte geben Sie consumerKey</string>
+    <string name="textViewPass">Consumer Key :</string>
+</resources>

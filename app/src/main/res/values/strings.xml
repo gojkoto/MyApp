@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Exercise 1</string>
+    <string name="button">Get Message</string>
+    <string name="textView2">Message: </string>
+    <string name="txtPassword">Please insert consumerKey</string>
+    <string name="textViewPass">Consumer Key :</string>
+</resources>
