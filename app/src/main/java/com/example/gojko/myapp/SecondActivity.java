@@ -8,6 +8,8 @@ import android.widget.Toast;
 
 import java.util.List;
 
+import okhttp3.CertificatePinner;
+import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -30,6 +32,14 @@ public class SecondActivity extends AppCompatActivity {
 
         textView1 = findViewById(R.id.textView1);
 
+
+        CertificatePinner certificatePinner = new CertificatePinner.Builder()
+                .add("short-messages-web-api.azurewebsites.net", "sha256/OtGR7ixvqZTxaH6c5Vpeje4IUMgdfqgYdIq5ZykUcgc=")
+                .build();
+        OkHttpClient okHttpClient = new OkHttpClient.Builder()
+                .certificatePinner(certificatePinner)
+                .build();
+
         Intent intent = getIntent();
         String consumerKey = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
 
@@ -41,6 +51,7 @@ public class SecondActivity extends AppCompatActivity {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(ApiShortMessage.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
+                .client(okHttpClient)
                 .build();
 
         ApiShortMessage apiShortMessage = retrofit.create(ApiShortMessage.class);
